@@ -120,7 +120,9 @@ function userInputValidator(req, res, next) {
 // this make sure user enter valid expence entry
 
 function entryInputValidator (req ,res ,next){
-  const username = req.body.username
+  const token = req.headers.token
+  const decoded = jwt.verify(token, jwtPassword);
+  const username = decoded.username;
   const expense = req.body.expense
   const description = req.body.description
   const amount = req.body.amount
