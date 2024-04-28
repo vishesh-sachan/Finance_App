@@ -190,22 +190,16 @@ app.get("/entries", userAccess, async (req, res) => {
 
 app.delete("/delete", userAccess, async (req, res) => {
   try {
-    // Validate username and expense presence (assuming validation is required)
-    if (!req.body.username || !req.body.expense) {
-      return res.status(400).json({ message: "Missing username or expense in request body" });
-    }
-
     const token = req.headers.token
     const decoded = jwt.verify(token, jwtPassword);
     const username = decoded.username;;
     const expense = req.body.expense;
-    // const { username, expense } = req.body; || completly new syntax for same above line
-
+    
     // Perform deletion using Mongoose
     const deletedEntry = await Entry.deleteOne({ username, expense });
 
     // Check if document was deleted (optional, for debugging/logging)
-    //not mine logic
+    // not mine logic
     if (!deletedEntry.deletedCount) {
       console.log("No matching entry found for deletion.");
       return res.status(404).json({ message: "Entry not found" });
