@@ -17,7 +17,7 @@
   <li>User Login: Authenticates users and generates a JWT token.</li>
   <li>Expense Entry: Creates a new expense entry for a specific user.</li>
   <li>View Entries: Retrieves all expense entries for a specific user.</li>
-  <li>Delete Entry: Deletes a specific expense entry for a user (requires username and expense details).</li>
+  <li>Delete Entry: Deletes a specific expense entry for a user (requires expense details).</li>
 </ul>
 <h3>Middleware:</h3>
 <ul>
