@@ -51,9 +51,9 @@ async function checkUserExists(req, res, next) {
     if (existingUser) {
       return res
         .status(409)
-        .json({ message: "Username already exists !! Try login" });
+        .json({ message: "Username already exists !! " });
     } else {
-      // Username is not available, proceed to the next middleware
+      // Username is available, proceed to the next middleware
       next();
     }
   } catch (error) {
